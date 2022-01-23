@@ -1,7 +1,7 @@
 package com.boots.controller;
 
 import com.boots.entity.Graph.ComposedFigure;
-import com.boots.entity.Graph.ComposedFigureRepositoryImpl;
+import com.boots.repository.ComposedFigureRepository;
 import com.boots.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +18,13 @@ public class AdminController {
     @Autowired
     private UserService userService;
     @Autowired
-    private ComposedFigureRepositoryImpl FigureRepository;
+    ComposedFigureRepository composedFigureRepository;
 
     @GetMapping("/constructionsite")
     public String construct(Model model)
     {
-        model.addAttribute("FigureOptions",FigureRepository.returnAll());
+
+        model.addAttribute("FigureOptions",composedFigureRepository.findAll());
         return "constructionsite";
     }
 

@@ -1,6 +1,7 @@
-package com.boots.entity.Graph;
+package com.boots.repository;
 
 import com.boots.entity.Graph.ComposedFigure;
+import com.boots.entity.Graph.FigureType;
 import com.boots.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,11 +12,9 @@ import java.util.ArrayList;
 
 public interface ComposedFigureRepository extends CrudRepository<ComposedFigure, Long> {
     //Достать одну фигуру из бд
-    @Query("select cf FROM ComposedFigure cf where cf.path = ?1 and cf.figure = ?2")
-    ComposedFigure findByPathAndFigure(String path, FigureType figureType);
+//    @Query("select cf FROM ComposedFigure cf where cf.path = ?1 and cf.figure = ?2")
+//    ComposedFigure findByPathAndAndFigure(String path, FigureType figureType);
 
     //Достать все результаты
-    @Query(value = "select * From t_figure",
-            nativeQuery = true)
-    ArrayList<ComposedFigure> getAll();
+    ArrayList<ComposedFigure> findAll();
 }

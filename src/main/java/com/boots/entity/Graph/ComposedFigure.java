@@ -3,6 +3,7 @@ package com.boots.entity.Graph;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.type.descriptor.sql.LobTypeMappings;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "t_figure")
 public class ComposedFigure {
     @Id
+    @GeneratedValue
     private Long id;
 
     @Getter
