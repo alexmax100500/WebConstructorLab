@@ -1,5 +1,7 @@
 package com.boots.controller;
 
+import com.boots.entity.Graph.ComposedFigure;
+import com.boots.entity.Graph.ComposedFigureRepositoryImpl;
 import com.boots.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +11,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class AdminController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private ComposedFigureRepositoryImpl FigureRepository;
+
+    @GetMapping("/constructionsite")
+    public String construct(Model model)
+    {
+        model.addAttribute("FigureOptions",FigureRepository.returnAll());
+        return "constructionsite";
+    }
 
     @GetMapping("/admin")
     public String userList(Model model) {
