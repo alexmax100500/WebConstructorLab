@@ -4,19 +4,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ShapeBuilder {
-    public Shape createShape(int type, double rx, double ry){
+    public Shape createShape(String type, double rx, double ry){
         Shape shape;
         switch(type) {
-            case 0:
+            case "emptiness":
                 shape = new Emptiness();
                 break;
-            case 1:
+            case "circle":
                 shape = new Circle(rx);
                 break;
-            case 2:
+            case "square":
                 shape = new Rectangular(rx, ry);
                 break;
-            case 3:
+            case "triangle":
                 shape = new Triangle(rx, ry);
                 break;
             default:
