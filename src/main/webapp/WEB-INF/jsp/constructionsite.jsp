@@ -44,7 +44,7 @@
     <div><input type="submit"/></div>
 </form>
 
-<span th:if="${ReadyFigures !=null}">
+<c:if test="${ReadyFigures !=null}">
     <p>Graph:</p>
     <canvas id="canvas" width="1000" height="1000"></canvas>
     <img id="Pallet" src="../../resources/static/background/pallet.png" hidden/>
@@ -65,6 +65,6 @@
 
     </c:forEach>
 
-</span>
+</c:if>
 </body>
 </html>
