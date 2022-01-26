@@ -36,9 +36,11 @@ public class AdminController {
                     readyFigures.add( new ReadyFigures(splited[1],i,splited[0]));
 
             }
+            else
+                readyFigures.add(new ReadyFigures("none",i,"resources/static/background/none.png"));
         }
         //Если добавлись/были выбраны фигуры
-        if(readyFigures!=null && !readyFigures.isEmpty())
+        if(readyFigures!=null)
             model.addAttribute("ReadyFigures",readyFigures);
 
         return "constructionsite";

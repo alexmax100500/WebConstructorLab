@@ -3,5 +3,6 @@ public
 enum FigureType{
     Triangle,
     Square,
-    Circle
+    Circle,
+    none
 }
