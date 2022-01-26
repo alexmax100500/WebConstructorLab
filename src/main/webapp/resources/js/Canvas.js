@@ -12,22 +12,22 @@ thirdQ = document.getElementById('3Q');
 
 
 
-zeroQ.onload = function () {
+zeroQ.onload = setTimeout(function () {
     ctx.drawImage(zeroQ, 440, 15, 295, 295);
-}
-firstQ.onload = function() {
+},20);
+firstQ.onload = setTimeout(function() {
     ctx.drawImage(firstQ, 152, 15, 295, 295);
-}
-secondQ.onload = function() {
+},20);
+secondQ.onload = setTimeout(function() {
     ctx.drawImage(secondQ, 152, 305, 295, 295);
-}
-thirdQ.onload = function() {
+},20);
+thirdQ.onload = setTimeout(function() {
     ctx.drawImage(thirdQ, 448, 305, 295, 295);
-}
+},20);
 
-Pallet.onload = function() {
+Pallet.onload = setTimeout(function() {
     ctx.drawImage(Pallet, 150, 0, 600, 600);
-}
+},200);
 function loadGraph()
 {
 

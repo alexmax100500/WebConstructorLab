@@ -16,3 +16,5 @@ create type figure_type as enum ('triangle', 'square', 'circle', 'emptiness');
 alter table t_figure
     owner to postgres;
 
+drop table t_figure;
+
