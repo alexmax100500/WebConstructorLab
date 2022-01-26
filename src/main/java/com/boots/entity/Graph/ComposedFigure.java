@@ -24,6 +24,11 @@ public class ComposedFigure {
     @Column(name = "type")
     private String figure;
 
+    @Getter
+    @Setter
+    @Column(name = "quarter")
+    private int quarter;
+
     public ComposedFigure(FigureType ft, byte imNum, byte secNum)
     {
         this.figure = ft.toString().toLowerCase();
