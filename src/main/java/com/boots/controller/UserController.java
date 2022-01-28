@@ -31,10 +31,10 @@ public class UserController {
         public String dots(@RequestBody String sx, @RequestBody String sy, @RequestBody String sr,
                            HttpServletRequest request,
                            HttpSession session){
-        String h = request.
-        int x = Integer.getInteger(sx);
-        int y = Integer.getInteger(sy);
-        int r = Integer.getInteger(sr);
+        String h = request.getParameter("X");
+        double x = Double.valueOf( request.getParameter("X"));
+        double y = Double.valueOf( request.getParameter("Y"));
+        double r = Double.valueOf( request.getParameter("R"));
         boolean t = checker.check(x,y,r);
         return "X: "+x+" Y: "+y+" R: "+r+ " T: "+ t;
     }
