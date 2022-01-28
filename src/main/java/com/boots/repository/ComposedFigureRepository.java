@@ -11,9 +11,9 @@ import javax.persistence.criteria.From;
 import java.util.ArrayList;
 
 public interface ComposedFigureRepository extends CrudRepository<ComposedFigure, Long> {
-    //Достать одну фигуру из бд
-//    @Query("select cf FROM ComposedFigure cf where cf.path = ?1 and cf.figure = ?2")
-//    ComposedFigure findByPathAndAndFigure(String path, FigureType figureType);
+    //Достать целый кортеж по выбранному пути
+    @Query("select cf FROM ComposedFigure cf where cf.path = ?1")
+    ComposedFigure findByPath(String path);
 
     //Достать все результаты
     ArrayList<ComposedFigure> findAll();

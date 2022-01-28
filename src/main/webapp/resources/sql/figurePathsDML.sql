@@ -18,22 +18,22 @@ INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/tria
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/triangle/2el4q.png','triangle',4,1,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/triangle/3el4q.png','triangle',4,0.5,1);
 
-INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/0.png','square',1,1,1);
+INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/1.png','square',1,1,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/1el1q.png','square',1,0.5,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/2el1q.png','square',1,0.5,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/3el1q.png','square',1,1,0.5);
 
-INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/0.png','square',2,1,1);
+INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/2.png','square',2,1,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/1el2q.png','square',2,0.5,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/2el2q.png','square',2,1,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/3el2q.png','square',2,0.5,1);
 
-INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/0.png','square',3,1,1);
+INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/3.png','square',3,1,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/1el3q.png','square',3,0.5,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/2el3q.png','square',3,0.5,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/3el3q.png','square',3,1,0.5);
 
-INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/0.png','square',4,1,1);
+INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/4.png','square',4,1,1);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/1el4q.png','square',4,0.5,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/2el4q.png','square',4,1,0.5);
 INSERT INTO t_figure(path, type, quarter, rx, ry) values ('resources/static/square/3el4q.png','square',4,0.5,1);

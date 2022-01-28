@@ -16,11 +16,6 @@ public class ComposedFigure {
 
     @Getter
     @Setter
-    @Column(name = "path")
-    private String path;
-
-    @Getter
-    @Setter
     @Column(name = "type")
     private String figure;
 
@@ -28,10 +23,26 @@ public class ComposedFigure {
     @Setter
     @Column(name = "quarter")
     private int quarter;
+    @Getter
+    @Setter
+    @Column(name = "path")
+    private String path;
 
-    public ComposedFigure(FigureType ft, byte imNum, byte secNum)
+    @Getter
+    @Setter
+    @Column(name = "rx")
+    private double rx;
+
+    @Getter
+    @Setter
+    @Column(name = "ry")
+    private double ry;
+
+    public ComposedFigure(String figure, int quarter, String path)
     {
-        this.figure = ft.toString().toLowerCase();
+        this.figure = figure;
+        this.quarter = quarter;
+        this.path = path;
     }
     public ComposedFigure(){}
 }

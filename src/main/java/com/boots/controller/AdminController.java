@@ -1,6 +1,6 @@
 package com.boots.controller;
 
-import com.boots.entity.ReadyFigures;
+import com.boots.entity.Graph.ComposedFigure;
 import com.boots.repository.ComposedFigureRepository;
 import com.boots.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -19,29 +20,30 @@ public class AdminController {
     @Autowired
     ComposedFigureRepository composedFigureRepository;
 
-    ArrayList<ReadyFigures> readyFigures;
+    //На вывод, после того, как были выбраны фигуры и типы инпутов админом
+    List<ComposedFigure> submittedStructure;
 
     @RequestMapping(value = "/constructionsite")
     String buildConstruct(Model model,
                           HttpServletRequest request,
                           HttpSession session){
         model.addAttribute("FigureOptions",composedFigureRepository.findAll());
-        readyFigures = new ArrayList<>();
+        submittedStructure = new ArrayList<>();
 
         //Добавление в модель 'ссылок на фигуры' четвертей 0Q 1Q 2Q 3Q
         for (int i = 1 ;i<=4;i++) {
-            if (request.getParameter("same"+i) != null) {
+if (request.getParameter("same"+i) != null) {
                 String[] splited = request.getParameter("same"+i).toString().split("\\s+");
                 if(splited.length>1)
-                    readyFigures.add( new ReadyFigures(splited[1],i,splited[0]));
+                    submittedStructure.add( new ComposedFigure(splited[1],i,splited[0]));
 
             }
             else
-                readyFigures.add(new ReadyFigures("none",i,"resources/static/background/none.png"));
+                submittedStructure.add(new ComposedFigure("none",i,"resources/static/background/none.png"));
         }
         //Если добавлись/были выбраны фигуры
-        if(readyFigures!=null)
-            model.addAttribute("ReadyFigures",readyFigures);
+        if(submittedStructure!=null)
+            model.addAttribute("ReadyFigures",submittedStructure);
 
         return "constructionsite";
     }
