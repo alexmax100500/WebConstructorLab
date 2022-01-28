@@ -8,6 +8,7 @@ import com.boots.service.shapes.GraphShapes;
 import com.boots.service.shapes.Shape;
 import com.boots.service.shapes.ShapeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ public class AdminController {
     @Autowired
     ComposedFigureRepository composedFigureRepository;
     @Autowired
+    @Qualifier("GraphShapes")
     GraphShapes graphShapes;
     @Autowired
     ShapeBuilder shapeBuilder;

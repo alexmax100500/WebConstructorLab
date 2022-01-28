@@ -1,45 +1,49 @@
 package com.boots.service.shapes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 @Service
+@ApplicationScope
 public class Checker {
     @Autowired
-    GraphShapes shapes;
+    @Qualifier("GraphShapes")
+    GraphShapes graphShapes;
 
     public boolean check(double x, double y, double r){
         if(x>0){
             if(y>0){
-                return shapes.rightUpperShape.check(x,y,r);
+                return graphShapes.getRightUpperShape().check(x,y,r);
             }
             if(y<0){
-                return shapes.rightLowerShape.check(x,y,r);
+                return graphShapes.getRightLowerShape().check(x,y,r);
             }
             if(y==0){
-                return shapes.rightUpperShape.check(x,y,r) || shapes.rightLowerShape.check(x,y,r);
+                return graphShapes.getRightUpperShape().check(x,y,r) || graphShapes.getRightLowerShape().check(x,y,r);
             }
         }
         if(x<0){
             if(y>0){
-                return shapes.leftUpperShape.check(x,y,r);
+                return graphShapes.getLeftUpperShape().check(x,y,r);
             }
             if(y<0){
-                return shapes.leftLowerShape.check(x,y,r);
+                return graphShapes.getLeftLowerShape().check(x,y,r);
             }
             if(y==0){
-                return shapes.leftUpperShape.check(x,y,r) || shapes.leftLowerShape.check(x,y,r);
+                return graphShapes.getLeftUpperShape().check(x,y,r) || graphShapes.getLeftLowerShape().check(x,y,r);
             }
         }
         if(x==0){
             if(y>0){
-                return shapes.rightUpperShape.check(x,y,r) || shapes.leftUpperShape.check(x,y,r);
+                return graphShapes.getRightUpperShape().check(x,y,r) || graphShapes.getLeftUpperShape().check(x,y,r);
             }
             if(y<0){
-                return shapes.leftLowerShape.check(x,y,r) || shapes.rightLowerShape.check(x,y,r);
+                return graphShapes.getLeftLowerShape().check(x,y,r) || graphShapes.getRightLowerShape().check(x,y,r);
             }
             if(y==0){
-                return shapes.rightLowerShape.check(x,y,r) || shapes.rightUpperShape.check(x,y,r) || shapes.leftLowerShape.check(x,y,r) || shapes.leftUpperShape.check(x,y,r);
+                return graphShapes.getRightLowerShape().check(x,y,r) || graphShapes.getRightUpperShape().check(x,y,r) || graphShapes.getLeftLowerShape().check(x,y,r) || graphShapes.getLeftUpperShape().check(x,y,r);
             }
         }
         return false;

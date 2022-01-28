@@ -1,9 +1,11 @@
 package com.boots.service.shapes;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-@Service
+@Service("GraphShapes")
 @ApplicationScope
 public class GraphShapes {
     Shape leftUpperShape;

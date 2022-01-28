@@ -5,6 +5,7 @@ import com.boots.entity.GraphStructure;
 import com.boots.service.shapes.Checker;
 import com.boots.service.shapes.GraphShapes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class UserController {
     GraphStructure<ComposedFigure> submittedStructure;
     @Autowired
     Checker checker;
+
     @GetMapping("/userconstruct")
      public String userconstruct(Model model,
                                  HttpServletRequest request,
