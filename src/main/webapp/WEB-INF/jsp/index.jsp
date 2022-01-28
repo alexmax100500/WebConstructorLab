@@ -20,6 +20,7 @@
     <h4><a href="/logout">Выйти</a></h4>
   </sec:authorize>
   <h4><a href="/admin">Пользователи (только админ)</a></h4>
+  <h4><a href="/userconstruct">Проверка графика</a></h4>
   <h4><a href="/constructionsite">Конструкция графика (только админ)</a></h4>
 </div>
 </body>

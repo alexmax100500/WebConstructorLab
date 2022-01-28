@@ -1,11 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Табличная вёрстка</title>
     <meta charset="UTF-8" />
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script defer src="../../resources/js/Canvas.js"></script>
     <script>
+
         var x0, y0, r0, x, y, cordX, cordY;
         var cordsX = [], cordsY = [];
         $( document ).ready(function() {
@@ -30,9 +35,8 @@
                 console.log($('#Y'));
                 console.log(r0);
                 $.post(
-                    url, //url страницы (action_ajax_form.php)
+                    "/dots", //url страницы (action_ajax_form.php)
                     {
-
                         X: x0,
                         Y: $('#Y').val(),
                         R: r0
@@ -72,25 +76,21 @@
     <style type="text/css">
         @font-face {
             font-family: "RobotoBold";
-            src: url("/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: "Roboto";
-            src: url("/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: "Cinzel";
-            src: url("/fonts/Cinzel/Cinzel-Medium.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: "Flower";
-            src: url("/fonts/Indie_Flower/IndieFlower-Regular.ttf") format("truetype");
             font-style: normal;
             font-weight: normal;
         }
@@ -217,8 +217,7 @@
                 <input type="submit" id="btn" value="Отправить">
             </td>
             <td width="30%">
-                <canvas id="canvas" width="268" height="267">
-                </canvas>
+                <canvas id="canvas" width="1000" height="1000"></canvas>
                 <script>
                     function getPosition(e){
                         var x = y = 0;
@@ -247,22 +246,25 @@
                         };
 
                     }
+                    function draw(item)
+                    {
 
+                    }
                     // Отслеживание события загрузки страницы
                     window.addEventListener('load', function() {
                         var cx = document.getElementById("canvas").getContext("2d");
                         // Создание объекта картинки
                         var img = new Image();
                         // Назначение путь до картинки
-                        img.src = "${pageContext.request.contextPath}/images/1.png";
+                        //submittedStructure.forEach(draw);
                         // Вывод картинки
-                        img.onload = function (ev) { cx.drawImage(img, 0, 0); };
+                        //img.onload = function (ev) { cx.drawImage(img, 0, 0); };
                         $('body').mousemove(function(e){
                             if(r0 != undefined){
                                 var cord = getPosition(e);
                                 var pos = getCoords(document.getElementById("canvas"));
                                 cx.clearRect(0,0,268,267);
-                                cx.drawImage(img, 0, 0);
+                                //cx.drawImage(img, 0, 0);
                                 var R = r0;
                                 cordX = 0;
                                 cord.x -= pos.left
@@ -309,7 +311,7 @@
                                 cordsX.push(cordX);
                                 cordsY.push(cordY);
                                 console.log(x0 + " " + document.getElementById("Y").value + " " + r0);
-                                sendAjaxForm('results', 'math_form', 'Controller');
+                                sendAjaxForm('results', 'math_form', '/dots');
                                 return false;
                             }else {
                                 document.getElementById('R').style.background = 'rgb(255, 100, 100)';
@@ -329,6 +331,29 @@
             <td colspan="2" id="results" style="vertical-align: top;"></td>
         </tr>
     </table>
+
 </form>
+<c:if test="${submittedStructure !=null}">
+    <p>Graph:</p>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    <img id="Pallet" src="../../resources/static/background/pallet.png" hidden/>
+
+    <c:forEach items="${submittedStructure}" var="rf" varStatus="loop">
+        <c:if test="${rf.quarter==1}">
+            <img id="0Q" src="${rf.path}" hidden/>
+        </c:if>
+        <c:if test="${rf.quarter==2}">
+            <img id="1Q" src="${rf.path}" hidden/>
+        </c:if>
+        <c:if test="${rf.quarter==3}">
+            <img id="2Q" src="${rf.path}" hidden/>
+        </c:if>
+        <c:if test="${rf.quarter==4}">
+            <img id="3Q" src="${rf.path}" hidden/>
+        </c:if>
+
+    </c:forEach>
+
+</c:if>
 </body>
 </html>

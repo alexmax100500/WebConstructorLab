@@ -28,7 +28,10 @@ public class UserController {
         return "/userconstruct";
     }
     @PostMapping("/dots")
-        public String dots(@RequestBody String sx, @RequestBody String sy, @RequestBody String sr){
+        public String dots(@RequestBody String sx, @RequestBody String sy, @RequestBody String sr,
+                           HttpServletRequest request,
+                           HttpSession session){
+        String h = request.
         int x = Integer.getInteger(sx);
         int y = Integer.getInteger(sy);
         int r = Integer.getInteger(sr);

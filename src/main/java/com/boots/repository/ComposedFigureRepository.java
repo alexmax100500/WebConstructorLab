@@ -16,6 +16,4 @@ public interface ComposedFigureRepository extends CrudRepository<ComposedFigure,
 
     //Достать все результаты
     ArrayList<ComposedFigure> findAll();
-
-    ArrayList<ComposedFigure> findAllByPath();
 }
