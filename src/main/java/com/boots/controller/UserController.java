@@ -30,9 +30,9 @@ public class UserController {
         public String dots(Model model,
                            HttpServletRequest request,
                            HttpSession session ){
-        int x = (int) request.getAttribute("X");
-        int y = (int) request.getAttribute("Y");
-        int r = (int) request.getAttribute("R");
+        int x = Integer.getInteger(request.getParameter("X"));
+        int y = Integer.getInteger(request.getParameter("Y"));
+        int r = Integer.getInteger(request.getParameter("R"));
         boolean t = checker.check(x,y,r);
         return "X: "+x+" Y: "+y+" R: "+r+ " T: "+ t;
     }
