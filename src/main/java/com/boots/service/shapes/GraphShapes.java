@@ -8,10 +8,10 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @Service("GraphShapes")
 @ApplicationScope
 public class GraphShapes {
-    Shape leftUpperShape;
-    Shape leftLowerShape;
-    Shape rightUpperShape;
-    Shape rightLowerShape;
+    Shape leftUpperShape= new Emptiness();
+    Shape leftLowerShape = new Emptiness();
+    Shape rightUpperShape = new Emptiness();
+    Shape rightLowerShape = new Emptiness();
 
     public void setLeftLowerShape(Shape leftLowerShape) {
         this.leftLowerShape = leftLowerShape;
