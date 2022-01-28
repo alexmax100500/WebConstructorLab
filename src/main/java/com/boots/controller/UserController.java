@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,15 +28,13 @@ public class UserController {
         return "/userconstruct";
     }
     @PostMapping("/dots")
-        public String dots(@RequestBody String sx, @RequestBody String sy, @RequestBody String sr,
-                           HttpServletRequest request,
-                           HttpSession session){
-        String h = request.getParameter("X");
-        double x = Double.valueOf( request.getParameter("X"));
-        double y = Double.valueOf( request.getParameter("Y"));
-        double r = Double.valueOf( request.getParameter("R"));
-        boolean t = checker.check(x,y,r);
-        return "X: "+x+" Y: "+y+" R: "+r+ " T: "+ t;
+    @ResponseBody
+        public String dots(@RequestParam double X, @RequestParam double Y, @RequestParam double R){
+//        double x = Double.valueOf( request.getParameter("X"));
+//        double y = Double.valueOf( request.getParameter("Y"));
+//        double r = Double.valueOf( request.getParameter("R"));
+        boolean t = checker.check(X,Y,R);
+        return "X: "+X+" Y: "+Y+" R: "+R+ " T: "+ t;
     }
 
 }

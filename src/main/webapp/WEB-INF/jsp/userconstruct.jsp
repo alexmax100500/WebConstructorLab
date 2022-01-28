@@ -217,7 +217,28 @@
                 <input type="submit" id="btn" value="Отправить">
             </td>
             <td width="30%">
-                <canvas id="canvas" width="1000" height="1000"></canvas>
+                <c:if test="${submittedStructure !=null}">
+                    <p>Graph:</p>
+                    <canvas id="canvas" width="1000" height="1000"></canvas>
+                    <img id="Pallet" src="../../resources/static/background/pallet.png" hidden/>
+
+                    <c:forEach items="${submittedStructure}" var="rf" varStatus="loop">
+                        <c:if test="${rf.quarter==1}">
+                            <img id="0Q" src="${rf.path}" hidden/>
+                        </c:if>
+                        <c:if test="${rf.quarter==2}">
+                            <img id="1Q" src="${rf.path}" hidden/>
+                        </c:if>
+                        <c:if test="${rf.quarter==3}">
+                            <img id="2Q" src="${rf.path}" hidden/>
+                        </c:if>
+                        <c:if test="${rf.quarter==4}">
+                            <img id="3Q" src="${rf.path}" hidden/>
+                        </c:if>
+
+                    </c:forEach>
+
+                </c:if>
                 <script>
                     function getPosition(e){
                         var x = y = 0;
@@ -263,7 +284,7 @@
                             if(r0 != undefined){
                                 var cord = getPosition(e);
                                 var pos = getCoords(document.getElementById("canvas"));
-                                cx.clearRect(0,0,268,267);
+                                // cx.clearRect(0,0,268,267);
                                 //cx.drawImage(img, 0, 0);
                                 var R = r0;
                                 cordX = 0;
@@ -271,37 +292,14 @@
                                 cord.y -= pos.top;
                                 x = (((cord.x - 132)/102)*R*2).toFixed()/2;
                                 y = (((cord.y - 133)/101)*(-1)*R);
-                                if(x > 2){
-                                    x = 2;
-                                }
-                                if(x < -2){
-                                    x = -2;
-                                }
-                                if(y > 3){
-                                    y = 3;
-                                }
-                                if(y < -3){
-                                    y = -3;
-                                }
                                 cordX = 132 + parseFloat((102*x/R).toFixed());
                                 cordY = 133 + parseFloat((-101*y/R).toFixed());
                                 cx.beginPath();
                                 cx.arc(cordX, cordY, 3, 0, 2*Math.PI, false);
                                 cx.fillStyle = 'red';
-                                cx.fill();
                                 cx.lineWidth = 1;
                                 cx.strokeStyle = 'red';
-                                cx.stroke();
-                                for(i = 0; i < cordsX.length; i++){
-                                    cx.beginPath();
-                                    cx.arc(cordsX[i], cordsY[i], 3, 0, 2*Math.PI, false);
-                                    cx.fillStyle = 'red';
-                                    cx.fill();
-                                    cx.lineWidth = 1;
-                                    cx.strokeStyle = 'red';
-                                    cx.stroke();
-                                }
-                                //console.log(cordX + " " + x + " " + cord.x + " " + cord.y);
+                                console.log(cordX + " " + x + " " + cord.x + " " + cord.y);
                             }
                         })
                         document.getElementById("canvas").addEventListener("click", function(e){
@@ -333,27 +331,6 @@
     </table>
 
 </form>
-<c:if test="${submittedStructure !=null}">
-    <p>Graph:</p>
-    <canvas id="canvas" width="1000" height="1000"></canvas>
-    <img id="Pallet" src="../../resources/static/background/pallet.png" hidden/>
 
-    <c:forEach items="${submittedStructure}" var="rf" varStatus="loop">
-        <c:if test="${rf.quarter==1}">
-            <img id="0Q" src="${rf.path}" hidden/>
-        </c:if>
-        <c:if test="${rf.quarter==2}">
-            <img id="1Q" src="${rf.path}" hidden/>
-        </c:if>
-        <c:if test="${rf.quarter==3}">
-            <img id="2Q" src="${rf.path}" hidden/>
-        </c:if>
-        <c:if test="${rf.quarter==4}">
-            <img id="3Q" src="${rf.path}" hidden/>
-        </c:if>
-
-    </c:forEach>
-
-</c:if>
 </body>
 </html>
