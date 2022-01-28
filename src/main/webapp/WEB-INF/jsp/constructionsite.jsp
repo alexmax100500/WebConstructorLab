@@ -64,7 +64,7 @@
             <p>text</p>
             <input type="radio" value="checkbox" name="Xinput">
             <p>checkbox</p>
-            <input type="text"  name="Xrestriction">
+            <input type="text" id="Xrest" name="Xrestriction">
             <p>restriction</p>
             </td>
 <td>
@@ -82,7 +82,7 @@
             <p>text</p>
             <input type="radio" value="checkbox" name="Yinput">
             <p>checkbox</p>
-            <input type="text"  name="Yrestriction">
+            <input type="text" id="Yrest" name="Yrestriction">
             <p>restriction</p>
 </td>
         <td>
@@ -97,7 +97,7 @@
             <p>text</p>
             <input type="radio" value="checkbox" name="Rinput">
             <p>checkbox</p>
-            <input type="text"  name="Rrestriction">
+            <input type="text" id="Rrest" name="Rrestriction">
             <p>restriction</p>
         </td>
         </tr>
@@ -128,4 +128,10 @@
 
 </c:if>
 </body>
+<script>
+    var regexp = new RegExp('^(-?[0-9]+[.,]?[0-9]*\\s?)+\\s*$');
+    var xr = document.getElementById('Xrest');
+    var yr = document.getElementById('Yrest');
+    var rr = document.getElementById('Rrest');
+</script>
 </html>
