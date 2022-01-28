@@ -7,3 +7,5 @@
 //         document.getElementsByName("triangle").style.display = "none";
 //     //alert(sel.value);
 // }
+
+document.getElementById()

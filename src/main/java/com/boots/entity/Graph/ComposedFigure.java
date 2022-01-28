@@ -14,6 +14,30 @@ public class ComposedFigure {
     @GeneratedValue
     private Long id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public int getQuarter() {
+        return quarter;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public double getRx() {
+        return rx;
+    }
+
+    public double getRy() {
+        return ry;
+    }
+
+    public String getFigure() {
+        return figure;
+    }
+
     @Getter
     @Setter
     @Column(name = "type")

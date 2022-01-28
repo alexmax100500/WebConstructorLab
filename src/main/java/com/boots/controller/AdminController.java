@@ -3,6 +3,10 @@ package com.boots.controller;
 import com.boots.entity.Graph.ComposedFigure;
 import com.boots.repository.ComposedFigureRepository;
 import com.boots.service.UserService;
+import com.boots.service.shapes.GraphShapes;
+import com.boots.service.shapes.Shape;
+import com.boots.service.shapes.ShapeBuilder;
+import org.graalvm.compiler.graph.Graph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +23,10 @@ public class AdminController {
     private UserService userService;
     @Autowired
     ComposedFigureRepository composedFigureRepository;
-
+    @Autowired
+    GraphShapes graphShapes;
+    @Autowired
+    ShapeBuilder shapeBuilder;
     //На вывод, после того, как были выбраны фигуры и типы инпутов админом
     List<ComposedFigure> submittedStructure;
 
@@ -29,23 +36,23 @@ public class AdminController {
                           HttpSession session){
         model.addAttribute("FigureOptions",composedFigureRepository.findAll());
         submittedStructure = new ArrayList<>();
-
+        Shape shape;
         //Добавление в модель 'ссылок на фигуры' четвертей 0Q 1Q 2Q 3Q
         for (int i = 1 ;i<=4;i++) {
+            ComposedFigure figure;
             if (request.getParameter("same"+i) != null) {
                 String[] splited = request.getParameter("same"+i).toString().split("\\s+");
-                if(splited.length>1)
-                   submittedStructure.add( new ComposedFigure(splited[1],i,splited[0]));
-
+                if(splited.length>1) {
+                    figure = new ComposedFigure(splited[1], i, splited[0]);
+                    buildShape(i, figure);
+                    submittedStructure.add(figure);
+                }
             }
-            else
-                submittedStructure.add(new ComposedFigure("none",i,"resources/static/background/none.png"));
-        }
-        //Добавление выбранных инпутов
-
-        for (int i =0;i<3;i++)
-        {
-
+            else {
+                figure = new ComposedFigure("none", i, "resources/static/background/none.png");
+                buildShape(i, figure);
+                submittedStructure.add(figure);
+            }
         }
 
         //Если добавлись/были выбраны фигуры
@@ -54,6 +61,24 @@ public class AdminController {
 
         return "constructionsite";
     }
+
+    private void buildShape(int i, ComposedFigure figure) {
+        Shape shape = shapeBuilder.createShape(figure.getFigure(), figure.getRx(), figure.getRy());
+        switch(i){
+            case 0:
+                graphShapes.setRightUpperShape(shape);
+                break;
+            case 1:
+                graphShapes.setLeftUpperShape(shape);
+                break;
+            case 2:
+                graphShapes.setLeftLowerShape(shape);
+                break;
+            case 3:
+                graphShapes.setRightLowerShape(shape);
+        }
+    }
+
     @GetMapping("/admin")
     public String userList(Model model) {
         model.addAttribute("allUsers", userService.allUsers());
