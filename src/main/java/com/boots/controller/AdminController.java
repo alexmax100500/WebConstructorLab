@@ -1,6 +1,7 @@
 package com.boots.controller;
 
 import com.boots.entity.Graph.ComposedFigure;
+import com.boots.entity.GraphStructure;
 import com.boots.repository.ComposedFigureRepository;
 import com.boots.service.UserService;
 import com.boots.service.shapes.GraphShapes;
@@ -28,16 +29,16 @@ public class AdminController {
     @Autowired
     ShapeBuilder shapeBuilder;
     //На вывод, после того, как были выбраны фигуры и типы инпутов админом
-    List<ComposedFigure> submittedStructure;
+    @Autowired
+    GraphStructure<ComposedFigure> submittedStructure;
 
     @RequestMapping(value = "/constructionsite")
     String buildConstruct(Model model,
                           HttpServletRequest request,
                           HttpSession session){
         model.addAttribute("FigureOptions",composedFigureRepository.findAll());
-        submittedStructure = new ArrayList<>();
-        Shape shape;
         //Добавление в модель 'ссылок на фигуры' четвертей 0Q 1Q 2Q 3Q
+        submittedStructure.clear();
         for (int i = 1 ;i<=4;i++) {
             ComposedFigure figure;
             if (request.getParameter("same"+i) != null) {
