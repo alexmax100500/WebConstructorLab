@@ -43,6 +43,11 @@ public class AdminController {
         }
         //Добавление выбранных инпутов
 
+        for (int i =0;i<3;i++)
+        {
+
+        }
+
         //Если добавлись/были выбраны фигуры
         if(submittedStructure!=null)
             model.addAttribute("ReadyFigures",submittedStructure);

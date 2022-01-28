@@ -1,7 +1,6 @@
 package com.boots.repository;
 
 import com.boots.entity.Graph.ComposedFigure;
-import com.boots.entity.Graph.FigureType;
 import com.boots.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

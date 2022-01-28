@@ -38,6 +38,7 @@ public class ComposedFigure {
     @Column(name = "ry")
     private double ry;
 
+
     public ComposedFigure(String figure, int quarter, String path)
     {
         this.figure = figure;
