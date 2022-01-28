@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<h3><a href="/">Главная</a></h3>
 <p>Создайте график</p>
 <form th:action="@{/constructionsite}" method="post">
     <table>
@@ -41,7 +42,62 @@
             </c:forEach>
         </tr>
     </table>
+    <table>
+        <th>
+           X
+        </th>
+        <th>
+            Y
+        </th>
+        <th>
+            R
+        </th>
+        <tr>
+            <td>
+            <input type="radio" value="radio" name="Xinput">
+            <p>radio</p>
+            <input type="radio" value="button" name="Xinput">
+            <p>button</p>
+            <input type="radio" value="select" name="Xinput">
+            <p>select</p>
+            <input type="radio" value="text" name="Xinput">
+            <p>text</p>
+            <input type="radio" value="checkbox" name="Xinput">
+            <p>checkbox</p>
+            <input type="text"  name="Xresthiction">
+            <p>restriction</p>
+            </td>
+<td>
+            <input type="radio" value="radio" name="Yinputt">
+            <p>radio</p>
+            <input type="radio" value="button" name="Yinputt">
+            <p>button</p>
+            <input type="radio" value="select" name="Yinputt">
+            <p>select</p>
+            <input type="radio" value="text" name="Yinputt">
+            <p>text</p>
+            <input type="radio" value="checkbox" name="Yinputt">
+            <p>checkbox</p>
+            <input type="text"  name="Yrestriction">
+            <p>restriction</p>
+</td>
+        <td>
 
+            <input type="radio" value="radio" name="Rinputt">
+            <p>radio</p>
+            <input type="radio" value="button" name="Rinputt">
+            <p>button</p>
+            <input type="radio" value="select" name="Rinputt">
+            <p>select</p>
+            <input type="radio" value="text" name="Rinputt">
+            <p>text</p>
+            <input type="radio" value="checkbox" name="Rinputt">
+            <p>checkbox</p>
+            <input type="text"  name="Rrestriction">
+            <p>restriction</p>
+        </td>
+        </tr>
+    </table>
     <div><input type="submit"/></div>
 </form>
 

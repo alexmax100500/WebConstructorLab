@@ -41,5 +41,4 @@ public class GraphShapes {
         return rightLowerShape;
     }
 
-
 }

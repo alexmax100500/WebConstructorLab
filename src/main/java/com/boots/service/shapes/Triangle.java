@@ -10,9 +10,9 @@ public class Triangle implements Shape {
     }
 
     @Override
-    public boolean check(double x, double y) {
+    public boolean check(double x, double y, double r) {
         x=Math.abs(x);
         y=Math.abs(y);
-        return y<=-ry/rx*x-rx;
+        return y<=-ry/rx*x-rx*r;
     }
 }
