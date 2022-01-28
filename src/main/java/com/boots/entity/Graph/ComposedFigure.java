@@ -63,11 +63,13 @@ public class ComposedFigure {
     private double ry;
 
 
-    public ComposedFigure(String figure, int quarter, String path)
+    public ComposedFigure(String figure, int quarter, String path, double rx, double ry)
     {
         this.figure = figure;
         this.quarter = quarter;
         this.path = path;
+        this.rx = rx;
+        this.ry = ry;
     }
     public ComposedFigure(){}
 }

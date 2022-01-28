@@ -8,7 +8,6 @@ import com.boots.service.shapes.GraphShapes;
 import com.boots.service.shapes.Shape;
 import com.boots.service.shapes.ShapeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,6 @@ public class AdminController {
     @Autowired
     ComposedFigureRepository composedFigureRepository;
     @Autowired
-    @Qualifier("GraphShapes")
     GraphShapes graphShapes;
     @Autowired
     ShapeBuilder shapeBuilder;
@@ -45,13 +43,13 @@ public class AdminController {
             if (request.getParameter("same"+i) != null) {
                 String[] splited = request.getParameter("same"+i).toString().split("\\s+");
                 if(splited.length>1) {
-                    figure = new ComposedFigure(splited[1], i, splited[0]);
+                    figure = composedFigureRepository.findByPath(splited[0]);
                     buildShape(i, figure);
                     submittedStructure.add(figure);
                 }
             }
             else {
-                figure = new ComposedFigure("none", i, "resources/static/background/none.png");
+                figure = new ComposedFigure("none", i, "resources/static/background/none.png",0,0);
                 buildShape(i, figure);
                 submittedStructure.add(figure);
             }
@@ -67,16 +65,16 @@ public class AdminController {
     private void buildShape(int i, ComposedFigure figure) {
         Shape shape = shapeBuilder.createShape(figure.getFigure(), figure.getRx(), figure.getRy());
         switch(i){
-            case 0:
+            case 1:
                 graphShapes.setRightUpperShape(shape);
                 break;
-            case 1:
+            case 2:
                 graphShapes.setLeftUpperShape(shape);
                 break;
-            case 2:
+            case 3:
                 graphShapes.setLeftLowerShape(shape);
                 break;
-            case 3:
+            case 4:
                 graphShapes.setRightLowerShape(shape);
         }
     }
