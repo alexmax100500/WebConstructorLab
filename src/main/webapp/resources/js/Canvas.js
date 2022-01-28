@@ -13,7 +13,7 @@ thirdQ = document.getElementById('3Q');
 
 
 zeroQ.onload = setTimeout(function () {
-    ctx.drawImage(zeroQ, 358, 15, 295, 295);
+    ctx.drawImage(zeroQ, 347, 15, 295, 295);
 },100);
 firstQ.onload = setTimeout(function() {
     ctx.drawImage(firstQ, 60, 15, 295, 295);
@@ -22,7 +22,7 @@ secondQ.onload = setTimeout(function() {
     ctx.drawImage(secondQ, 60, 305, 295, 295);
 },100);
 thirdQ.onload = setTimeout(function() {
-    ctx.drawImage(thirdQ, 366, 305, 295, 295);
+    ctx.drawImage(thirdQ, 355, 305, 295, 295);
 },100);
 
 Pallet.onload = setTimeout(function() {

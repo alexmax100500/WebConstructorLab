@@ -42,7 +42,7 @@
             </c:forEach>
         </tr>
     </table>
-    <table>
+    <%--<table>
         <th>
            X
         </th>
@@ -68,10 +68,6 @@
             <p>restriction</p>
             </td>
 <td>
-    <%
-
-
-    %>
             <input type="radio" value="radio" name="Yinput">
             <p>radio</p>
             <input type="radio" value="button" name="Yinput">
@@ -101,7 +97,7 @@
             <p>restriction</p>
         </td>
         </tr>
-    </table>
+    </table>--%>
     <div><input type="submit"/></div>
 </form>
 
