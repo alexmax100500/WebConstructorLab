@@ -34,7 +34,7 @@ public class UserController {
 //        double y = Double.valueOf( request.getParameter("Y"));
 //        double r = Double.valueOf( request.getParameter("R"));
         boolean t = checker.check(X,Y,R);
-        return "X: "+X+" Y: "+Y+" R: "+R+ " T: "+ t;
+        return "<td>"+X+"</td>"+"<td>"+Y+"</td>"+"<td>"+R+"</td>"+"<td>"+t+"</td>";
     }
 
 }

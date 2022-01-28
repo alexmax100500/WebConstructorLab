@@ -42,7 +42,9 @@
                         R: r0
                     },
                     function(response) { //Данные отправлены успешно
-                        document.getElementById("results").innerHTML = response;
+                        var row = document.createElement("tr");
+                        row.innerHTML = response;
+                        document.getElementById("results").parentElement.insertBefore(row,document.getElementById("results"));
                     }
                 );
             }
@@ -328,7 +330,13 @@
             <td class = "result">
                 <span class = "result">Результаты:</span>
             </td>
-            <td colspan="2" id="results" style="vertical-align: top;"></td>
+            <tr>
+            <td>X</td>
+            <td>Y</td>
+            <td>R</td>
+            <td>T</td>
+            </tr>
+            <tr colspan="2" id="results" style="vertical-align: top;"></tr>
         </tr>
     </table>
 
