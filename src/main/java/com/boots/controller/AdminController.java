@@ -32,15 +32,17 @@ public class AdminController {
 
         //Добавление в модель 'ссылок на фигуры' четвертей 0Q 1Q 2Q 3Q
         for (int i = 1 ;i<=4;i++) {
-if (request.getParameter("same"+i) != null) {
+            if (request.getParameter("same"+i) != null) {
                 String[] splited = request.getParameter("same"+i).toString().split("\\s+");
                 if(splited.length>1)
-                    submittedStructure.add( new ComposedFigure(splited[1],i,splited[0]));
+                   submittedStructure.add( new ComposedFigure(splited[1],i,splited[0]));
 
             }
             else
                 submittedStructure.add(new ComposedFigure("none",i,"resources/static/background/none.png"));
         }
+        //Добавление выбранных инпутов
+
         //Если добавлись/были выбраны фигуры
         if(submittedStructure!=null)
             model.addAttribute("ReadyFigures",submittedStructure);

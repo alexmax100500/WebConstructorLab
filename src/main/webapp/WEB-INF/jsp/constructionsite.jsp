@@ -64,34 +64,38 @@
             <p>text</p>
             <input type="radio" value="checkbox" name="Xinput">
             <p>checkbox</p>
-            <input type="text"  name="Xresthiction">
+            <input type="text"  name="Xrestriction">
             <p>restriction</p>
             </td>
 <td>
-            <input type="radio" value="radio" name="Yinputt">
+    <%
+
+
+    %>
+            <input type="radio" value="radio" name="Yinput">
             <p>radio</p>
-            <input type="radio" value="button" name="Yinputt">
+            <input type="radio" value="button" name="Yinput">
             <p>button</p>
-            <input type="radio" value="select" name="Yinputt">
+            <input type="radio" value="select" name="Yinput">
             <p>select</p>
-            <input type="radio" value="text" name="Yinputt">
+            <input type="radio" value="text" name="Yinput">
             <p>text</p>
-            <input type="radio" value="checkbox" name="Yinputt">
+            <input type="radio" value="checkbox" name="Yinput">
             <p>checkbox</p>
             <input type="text"  name="Yrestriction">
             <p>restriction</p>
 </td>
         <td>
 
-            <input type="radio" value="radio" name="Rinputt">
+            <input type="radio" value="radio" name="Rinput">
             <p>radio</p>
-            <input type="radio" value="button" name="Rinputt">
+            <input type="radio" value="button" name="Rinput">
             <p>button</p>
-            <input type="radio" value="select" name="Rinputt">
+            <input type="radio" value="select" name="Rinput">
             <p>select</p>
-            <input type="radio" value="text" name="Rinputt">
+            <input type="radio" value="text" name="Rinput">
             <p>text</p>
-            <input type="radio" value="checkbox" name="Rinputt">
+            <input type="radio" value="checkbox" name="Rinput">
             <p>checkbox</p>
             <input type="text"  name="Rrestriction">
             <p>restriction</p>
