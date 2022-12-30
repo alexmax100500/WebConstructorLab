@@ -1,0 +1,27 @@
+import org.springframework.boot.test;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@WebMvcTest(controllers = AdminController.class)
+class AdminControllerTest{
+  @Autowired
+  private MockMvc mockMvc;
+    @MockBean
+    private UserService userService;
+    @MockBean
+    ComposedFigureRepository composedFigureRepository;
+    @MockBean
+    GraphShapes graphShapes;
+    @MockBean
+    ShapeBuilder shapeBuilder;
+    @MockBean
+    GraphStructure<ComposedFigure> submittedStructure;
+
+  @Test
+  void AdminpageAccesible() throws Exception {
+    mockMvc.perform(get("/constructionsite")
+    .andExpect(status().isOk());
+  }
+
+}
